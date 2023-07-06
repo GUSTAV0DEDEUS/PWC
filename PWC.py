@@ -1,3 +1,4 @@
+import re
 # 1
 # phrase = input().split()
 # newPhrase = ''
@@ -45,8 +46,11 @@ for i in range(len(phrase) - 1):
     if (index != -1):
       newPhrase +=  " " + phrase[i + 1].capitalize()
   if(phrase[i + 1].capitalize() not in newPhrase):
-    newPhrase +=  " " + phrase[i + 1]
+    if(len(phrase[i+1]) == 1 and phrase[i+1] == 'i'):
+      newPhrase +=  " " + phrase[i + 1].upper()
+    else:
+      newPhrase +=  " " + phrase[i + 1]
 print(newPhrase)
 
 #CASO1: hello. how are you? i'm fine, thank you.
-#CASO2: wow. you are doctor, too? yes. i started my job this week! great, congratulations.
+#CASO2: wow. you are doctor, too? yes, i started my job this week! great, congratulations.
