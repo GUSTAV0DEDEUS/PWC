@@ -24,13 +24,29 @@
 #CASO2: Good Morning
 
 #3
-word = input()
-while True:
-  if(len(word) == 0 or word[::-1] in word) :
-    print(word)
-    break
-  else:
-    word = word.rstrip(word[-1])   
+# word = input()
+# while True:
+#   if(len(word) == 0 or word[::-1] in word) :
+#     print(word)
+#     break
+#   else:
+#     word = word.rstrip(word[-1])   
     
 #CASO1: BABAD
 #CASO2: OVOWOD
+
+#4
+phrase = input().split()
+substrings = ['.', ";", "!", "?"]
+newPhrase = phrase[0].capitalize()
+for i in range(len(phrase) - 1):
+  for sub in substrings:
+    index = phrase[i].find(sub)
+    if (index != -1):
+      newPhrase +=  " " + phrase[i + 1].capitalize()
+  if(phrase[i + 1].capitalize() not in newPhrase):
+    newPhrase +=  " " + phrase[i + 1]
+print(newPhrase)
+
+#CASO1: hello. how are you? i'm fine, thank you.
+#CASO2: wow. you are doctor, too? yes. i started my job this week! great, congratulations.
